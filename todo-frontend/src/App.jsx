@@ -1,0 +1,17 @@
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import "./App.css";
+
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/todos" element={<h1>Todos page</h1>} />
+      </Routes>
+    </>
+  );
+}
+
+export default App;
