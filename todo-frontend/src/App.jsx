@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
+import Todos from "./pages/todos";
 import "./App.css";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/todos" element={<h1>Todos page</h1>} />
+        <Route path="/todos" element={<Todos />} />
       </Routes>
     </>
   );

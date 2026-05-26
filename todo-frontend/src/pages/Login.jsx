@@ -21,14 +21,15 @@ function Login() {
         },
       );
 
-      const result = await response.json;
+      const result = await response.json();
 
       if (!response.ok) {
         setError(result.error);
         return;
       }
-
       localStorage.setItem("token", result.token);
+      //   console.log(result.token);
+
       navigate("/todos");
     } catch (error) {
       setError("Something went wrong . Try again. ");
@@ -38,20 +39,27 @@ function Login() {
   return (
     <div>
       <h1>Login</h1>
-      <input
-        type="email"
-        placeholder="Enter email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Enter password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {error && <p>{error}</p>}
-      <button onClick={handleLogin}>Login</button>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleLogin();
+        }}
+      >
+        <input
+          type="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {error && <p>{error}</p>}
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 }
