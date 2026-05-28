@@ -6,6 +6,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   async function handleRegister() {
     try {
@@ -17,7 +18,20 @@ function Register() {
           body: JSON.stringify({ email, password }),
         },
       );
-      const result = await response.json;
+
+      const result = await response.json();
+      console.log(result);
+
+      //if registration failed
+      if (!response.ok) {
+        setError(response.error);
+        return;
+      }
+
+      //save the jwt token in localstorage
+      localStorage.setItem("token", result.token);
+      navigate("/");
+
       console.log(result);
     } catch (error) {
       setError("Something went wrong . Try again. ");
@@ -41,6 +55,10 @@ function Register() {
       />
       {error && <p>{error}</p>}
       <button onClick={handleRegister}>Register</button>
+      <p>
+        Already have an account?{" "}
+        <button onClick={() => navigate("/")}>Login</button>
+      </p>
     </div>
   );
 }

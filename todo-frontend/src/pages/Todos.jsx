@@ -7,6 +7,8 @@ function Todos() {
   const [newTodo, setNewTodo] = useState([]);
   const navigate = useNavigate();
 
+  //fetching all the todos
+
   useEffect(() => {
     async function fetchTodo() {
       const token = localStorage.getItem("token"); // fetching jwt token from localStorage to use it in authorization
@@ -64,7 +66,7 @@ function Todos() {
     }
   }
 
-  // deleting a task
+  // deleting a todo
 
   async function deleteTodo(id) {
     const token = localStorage.getItem("token");
@@ -110,6 +112,7 @@ function Todos() {
     }
   }
 
+  //logout function
   function handleLogout() {
     localStorage.removeItem("token");
     navigate("/");
