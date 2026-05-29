@@ -8,7 +8,6 @@ import "./App.css";
 function App() {
   return (
     <>
-      {/* <h1 className="text-3xl font-bold text-blue-500">Todo App</h1> */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />

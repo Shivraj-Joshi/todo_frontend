@@ -29,8 +29,7 @@ function Todos() {
         );
 
         const result = await response.json();
-        console.log(" GET result :", result);
-        console.log(" GET result:", result.data);
+
         setTodos(result.data);
       } catch (error) {
         console.log(err.message);
@@ -57,8 +56,7 @@ function Todos() {
         body: JSON.stringify({ title: newTodo }),
       });
       const result = await response.json();
-      //   console.log(result);
-      //   console.log(result.data.completed);
+
       setTodos([...todos, result]); //adding a new todo to an existing list
       setNewTodo(""); //clearing the input
     } catch (error) {
@@ -80,7 +78,6 @@ function Todos() {
         },
       );
       const result = await response.json();
-      //   console.log("delete result : ", result);
       setTodos(todos.filter((todo) => todo.id !== id));
     } catch (err) {
       console.log(err.message);
@@ -105,7 +102,6 @@ function Todos() {
         },
       );
       const result = await response.json();
-      console.log("PUT result: ", result);
       setTodos(todos.map((todo) => (todo.id === id ? result : todo)));
     } catch (err) {
       console.log(err.message);

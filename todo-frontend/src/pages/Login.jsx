@@ -28,7 +28,6 @@ function Login() {
         return;
       }
       localStorage.setItem("token", result.token);
-      //   console.log(result.token);
 
       navigate("/todos");
     } catch (error) {
@@ -37,34 +36,6 @@ function Login() {
   }
 
   return (
-    // <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-    //   <h1>Login</h1>
-    //   <form
-    //     onSubmit={(e) => {
-    //       e.preventDefault();
-    //       handleLogin();
-    //     }}
-    //   >
-    //     <input
-    //       type="email"
-    //       placeholder="Enter email"
-    //       value={email}
-    //       onChange={(e) => setEmail(e.target.value)}
-    //     />
-    //     <input
-    //       type="password"
-    //       placeholder="Enter password"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //     {error && <p>{error}</p>}
-    //     <button type="submit">Login</button>
-    //     <p>
-    //       Don't have an account?{" "}
-    //       <button onClick={() => navigate("/register")}>Register</button>
-    //     </p>
-    //   </form>
-    // </div>
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-sm">
         <div className="flex flex-col items-center mb-6">

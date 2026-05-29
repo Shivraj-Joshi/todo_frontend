@@ -20,7 +20,6 @@ function Register() {
       );
 
       const result = await response.json();
-      console.log(result);
 
       //if registration failed
       if (!response.ok) {
@@ -31,35 +30,12 @@ function Register() {
       //save the jwt token in localstorage
       localStorage.setItem("token", result.token);
       navigate("/");
-
-      console.log(result);
     } catch (error) {
       setError("Something went wrong . Try again. ");
     }
   }
 
   return (
-    // <div>
-    //   <h1>Register</h1>
-    //   <input
-    //     type="email"
-    //     placeholder="Enter email"
-    //     value={email}
-    //     onChange={(e) => setEmail(e.target.value)}
-    //   />
-    //   <input
-    //     type="password"
-    //     placeholder="Enter password"
-    //     value={password}
-    //     onChange={(e) => setPassword(e.target.value)}
-    //   />
-    //   {error && <p>{error}</p>}
-    //   <button onClick={handleRegister}>Register</button>
-    //   <p>
-    //     Already have an account?{" "}
-    //     <button onClick={() => navigate("/")}>Login</button>
-    //   </p>
-    // </div>
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-sm">
         <div className="flex flex-col items-center mb-6">
