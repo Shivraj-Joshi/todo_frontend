@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import Todos from "./pages/todos";
+import Todos from "./pages/Todos";
 import Register from "./pages/Register";
 import "./App.css";
 
