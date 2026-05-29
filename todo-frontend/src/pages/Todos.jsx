@@ -21,7 +21,7 @@ function Todos() {
       try {
         // fetching user's todos
         const response = await fetch(
-          "https://todo-api-ksd1.onrender.com/todos",
+          `${import.meta.env.VITE_BACKEND_API_URL}/todos`,
           {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
@@ -47,14 +47,17 @@ function Todos() {
     if (!newTodo.trim()) return; // don't add empty todos
 
     try {
-      const response = await fetch("https://todo-api-ksd1.onrender.com/todos", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_API_URL}/todos`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ title: newTodo }),
         },
-        body: JSON.stringify({ title: newTodo }),
-      });
+      );
       const result = await response.json();
 
       setTodos([...todos, result]); //adding a new todo to an existing list
@@ -71,7 +74,7 @@ function Todos() {
 
     try {
       const response = await fetch(
-        `https://todo-api-ksd1.onrender.com/todos/${id}`,
+        `${import.meta.env.VITE_BACKEND_API_URL}/todos/${id}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
@@ -91,7 +94,7 @@ function Todos() {
 
     try {
       const response = await fetch(
-        `https://todo-api-ksd1.onrender.com/todos/${id}`,
+        `${import.meta.env.VITE_BACKEND_API_URL}/todos/${id}`,
         {
           method: "PUT",
           headers: {

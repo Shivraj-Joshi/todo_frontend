@@ -11,7 +11,7 @@ function Register() {
   async function handleRegister() {
     try {
       const response = await fetch(
-        "https://todo-api-ksd1.onrender.com/auth/register",
+        `${import.meta.env.VITE_BACKEND_API_URL}/auth/register`,
         {
           method: "POST",
           headers: { "Content-type": "application/json" },
